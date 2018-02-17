@@ -19,6 +19,11 @@ io.on('connection', function(socket) {
 		io.sockets.emit('transmission_new', data);
 	});
 
+	socket.on('coin_transmission', function(data) {
+		io.sockets.emit('coinSumTransmission', data);
+	});
+	
+
 });
 
 server.listen(PORT, function() {
