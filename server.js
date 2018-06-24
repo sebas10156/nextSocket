@@ -11,16 +11,9 @@ app.get('/', function(req, res) {
 io.on('connection', function(socket) {
 	// console.log("Alguien se conecto con el socket");
 
-	socket.on('update_message', function(data) {
+	socket.on('refresh_message', function(data) {
+		console.log(data);
 		io.sockets.emit('message_new', data);
-	});
-
-	socket.on('update_transmission', function(data) {
-		io.sockets.emit('transmission_new', data);
-	});
-
-	socket.on('coin_transmission', function(data) {
-		io.sockets.emit('coinSumTransmission', data);
 	});
 	
 
