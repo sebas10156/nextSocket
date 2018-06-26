@@ -12,10 +12,14 @@ io.on('connection', function(socket) {
 	// console.log("Alguien se conecto con el socket");
 
 	socket.on('refresh_message', function(data) {
-		console.log(data);
 		io.sockets.emit('message_new', data);
 	});
-	
+
+	// actualizar transmisiones
+	socket.on('refresh_transmissions', function(data) {
+		io.sockets.emit('transmission_new', data);
+	});
+
 
 });
 
