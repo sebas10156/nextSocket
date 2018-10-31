@@ -5,21 +5,15 @@ var io      = require('socket.io')(server);
 var PORT    = parseInt(process.env.PORT,10) || 5000;
 
 app.get('/', function(req, res) {
-	res.status(200).send("hola mundo");
+	res.status(200).send("Hola soy el servidor de NextCam - Company");
 });
 
 io.on('connection', function(socket) {
 	// console.log("Alguien se conecto con el socket");
 
-	socket.on('refresh_message', function(data) {
-		io.sockets.emit('message_new', data);
+	socket.on('message_new', function(data) {
+		io.sockets.emit('message_notify', data);
 	});
-
-	// actualizar transmisiones
-	socket.on('refresh_transmissions', function(data) {
-		io.sockets.emit('transmission_new', data);
-	});
-
 
 });
 
