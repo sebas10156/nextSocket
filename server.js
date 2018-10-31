@@ -15,6 +15,11 @@ io.on('connection', function(socket) {
 		io.sockets.emit('message_notify', data);
 	});
 
+	// streaming
+	socket.on('streaming_video', function(data) {
+		io.sockets.emit('streaming_notify', data);
+	});
+
 });
 
 server.listen(PORT, function() {
