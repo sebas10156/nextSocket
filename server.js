@@ -20,6 +20,18 @@ io.on('connection', function(socket) {
 		io.sockets.emit('streaming_notify', data);
 	});
 
+
+	// actualizacion de transmisiones
+	socket.on('streaming_online', function(data) {
+		io.sockets.emit('streaming_online_new', data);
+	});
+
+	// anunciar que se acabo el streaming
+	socket.on('streaming_stop', function(data) {
+		io.sockets.emit('streaming_online_stop', data);
+	});
+
+
 });
 
 server.listen(PORT, function() {
