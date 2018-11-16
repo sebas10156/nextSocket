@@ -31,6 +31,11 @@ io.on('connection', function(socket) {
 		io.sockets.emit('streaming_online_stop', data);
 	});
 
+	// aviso de nuevo pago
+
+	socket.on('new_payment_stream', function(data) {
+		io.sockets.emit('new_payment_stream_active', data);
+	});
 
 });
 
